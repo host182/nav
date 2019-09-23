@@ -14,7 +14,7 @@
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
--(void) changeScene: (int) rowIndex;
+-(void)changeScene: (UITableView *) tableView rowTapped:(NSNumber *)rowIndex;
 
 @end
 

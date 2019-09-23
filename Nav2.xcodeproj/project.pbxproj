@@ -17,6 +17,7 @@
 		B886F9A223358515009CCCE7 /* Nav2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B886F9A123358515009CCCE7 /* Nav2Tests.m */; };
 		B886F9AD23358515009CCCE7 /* Nav2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B886F9AC23358515009CCCE7 /* Nav2UITests.m */; };
 		B886F9BB233587F9009CCCE7 /* getData.m in Sources */ = {isa = PBXBuildFile; fileRef = B886F9BA233587F9009CCCE7 /* getData.m */; };
+		B886F9C023397935009CCCE7 /* BackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B886F9BF23397935009CCCE7 /* BackButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		B886F9AE23358515009CCCE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B886F9BA233587F9009CCCE7 /* getData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = getData.m; sourceTree = "<group>"; };
 		B886F9BC23359009009CCCE7 /* getData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = getData.h; sourceTree = "<group>"; };
+		B886F9BF23397935009CCCE7 /* BackButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackButton.m; sourceTree = "<group>"; };
+		B886F9C123397CE4009CCCE7 /* BackButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackButton.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				B886F98B23358515009CCCE7 /* ViewController.h */,
 				B886F98C23358515009CCCE7 /* ViewController.m */,
 				B886F98E23358515009CCCE7 /* Main.storyboard */,
+				B886F9BF23397935009CCCE7 /* BackButton.m */,
+				B886F9C123397CE4009CCCE7 /* BackButton.h */,
 				B886F99123358515009CCCE7 /* Assets.xcassets */,
 				B886F99323358515009CCCE7 /* LaunchScreen.storyboard */,
 				B886F99623358515009CCCE7 /* Info.plist */,
@@ -274,6 +279,7 @@
 			files = (
 				B886F98D23358515009CCCE7 /* ViewController.m in Sources */,
 				B886F98723358515009CCCE7 /* AppDelegate.m in Sources */,
+				B886F9C023397935009CCCE7 /* BackButton.m in Sources */,
 				B886F99823358515009CCCE7 /* main.m in Sources */,
 				B886F9BB233587F9009CCCE7 /* getData.m in Sources */,
 				B886F98A23358515009CCCE7 /* SceneDelegate.m in Sources */,
@@ -445,6 +451,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Nav2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -461,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Nav2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
