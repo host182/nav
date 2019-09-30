@@ -1,49 +1,48 @@
 //
-//  ViewController.m
+//  SecondViewController.m
 //  TestProject
 //
 //  Created by Poudel, Novel on 9/27/19.
 //  Copyright © 2019 Poudel, Novel. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SecondViewController.h"
 
-@interface ViewController ()
+@interface SecondViewController ()
 
 @end
 
-@implementation ViewController
-{
-    NSArray *data;
-    NSDictionary *bible;
-}
+@implementation SecondViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    bible = [GetData getDataAsDictionary];
-    data = [GetData getBooks:bible];
+    self.title = [self.data[0] componentsSeparatedByString:@" "][0];
+    
+//    [self.navigationController.navigationBar setTitleTextAttributes:<#(NSDictionary<NSAttributedStringKey,id> * _Nullable)#>]
 }
-
-
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reusableCell"];
     
-    cell.textLabel.text = data[indexPath.row];
+    cell.textLabel.text = self.data[indexPath.row];
     
     return cell;
 }
 
+
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return data.count;
+    return self.data.count;
 }
+
 
 //- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 //    rowTapped = (int)indexPath.row;
 //}
+
 
 
 #pragma mark - Navigation
@@ -53,15 +52,15 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    SecondViewController *nextVC = [segue destinationViewController];
+    ThirdViewController *nextVC = [segue destinationViewController];
+       
+   int rowTapped = (int)[self.data indexOfObject:sender.textLabel.text];
+   
+    NSArray *nextData = [GetData scene3:self.bible rowTapped:rowTapped bookIndex:self.rowIndex];
+   nextVC.data = nextData;
+   nextVC.bible = self.bible;
+   nextVC.rowIndex = rowTapped;
     
-    int rowTapped = (int)[data indexOfObject:sender.textLabel.text];
-    NSLog(@"%d", rowTapped);
-    
-    NSArray *nextData = [GetData scene2:bible rowTapped:rowTapped];
-    nextVC.data = nextData;
-    nextVC.bible = bible;
-    nextVC.rowIndex = rowTapped;
 }
 
 

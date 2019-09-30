@@ -31,9 +31,9 @@
 
     // Coverting NSData with fetched json as a dictionary object
     NSDictionary *bible = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-    [bible retain];         //Increasing the retain count so that it can be released later
-    
-    [url release];
+//    [bible retain];         //Increasing the retain count so that it can be released later
+//    
+//    [url release];
 
     return bible;
 }

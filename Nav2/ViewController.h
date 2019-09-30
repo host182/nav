@@ -1,20 +1,17 @@
 //
 //  ViewController.h
-//  Nav2
+//  TestProject
 //
-//  Created by Poudel, Novel on 9/20/19.
+//  Created by Poudel, Novel on 9/27/19.
 //  Copyright © 2019 Poudel, Novel. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "getData.h"
+#import "SecondViewController.h"
 
-// work on making array of functions
-// also work on memory management next time
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
--(void)changeScene: (UITableView *) tableView rowTapped:(NSNumber *)rowIndex;
 
 @end
 
