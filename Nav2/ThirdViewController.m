@@ -47,9 +47,9 @@
 }
 */
 
--(void) dealloc{
-    [self.data release];
-    [self.bible release];
-}
+//-(void) dealloc{
+//    [self.data release];
+//    [self.bible release];
+//}
 
 @end

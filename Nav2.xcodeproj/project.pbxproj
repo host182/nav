@@ -13,12 +13,12 @@
 		B82A4D04233ED13800C162A4 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B82A4CF4233ED13700C162A4 /* SceneDelegate.m */; };
 		B82A4D05233ED13800C162A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B82A4CF5233ED13700C162A4 /* Assets.xcassets */; };
 		B82A4D06233ED13800C162A4 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82A4CF6233ED13700C162A4 /* ThirdViewController.m */; };
-		B82A4D07233ED13800C162A4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B82A4CF7233ED13700C162A4 /* Info.plist */; };
 		B82A4D08233ED13800C162A4 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B82A4CFC233ED13700C162A4 /* Base.lproj */; };
 		B82A4D09233ED13800C162A4 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82A4CFE233ED13800C162A4 /* SecondViewController.m */; };
 		B82A4D0A233ED13800C162A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82A4CFF233ED13800C162A4 /* ViewController.m */; };
 		B886F9A223358515009CCCE7 /* Nav2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B886F9A123358515009CCCE7 /* Nav2Tests.m */; };
 		B886F9AD23358515009CCCE7 /* Nav2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B886F9AC23358515009CCCE7 /* Nav2UITests.m */; };
+		B8A11A0623429A3200ED3A9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82A4D0B233ED1A500C162A4 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -257,7 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B82A4D07233ED13800C162A4 /* Info.plist in Resources */,
+				B8A11A0623429A3200ED3A9E /* Main.storyboard in Resources */,
 				B82A4D08233ED13800C162A4 /* Base.lproj in Resources */,
 				B82A4D05233ED13800C162A4 /* Assets.xcassets in Resources */,
 			);

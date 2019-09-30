@@ -65,10 +65,10 @@
 }
 
 
--(void) dealloc{
-    [bible release];
-    [data release];
-}
+//-(void) dealloc{
+//    [bible release];
+//    [data release];
+//}
 
 
 @end
