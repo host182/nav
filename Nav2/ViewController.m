@@ -65,4 +65,10 @@
 }
 
 
+-(void) dealloc{
+    [bible release];
+    [data release];
+}
+
+
 @end
