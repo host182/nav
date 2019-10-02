@@ -18,9 +18,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = [self.data[0] componentsSeparatedByString:@" "][0];
+    NSArray *subStrings = [self.data[0] componentsSeparatedByString:@" "];
+    NSMutableString *viewTitle = [NSMutableString string];
+    for (int i=0; i< (int)[subStrings count]-1;i++)
+    {
+        [viewTitle appendFormat:@"%@ ",subStrings[i]];
+    }
+    [viewTitle deleteCharactersInRange:NSMakeRange(viewTitle.length-1, 1)];     //removing the last space from the title string
     
-//    [self.navigationController.navigationBar setTitleTextAttributes:<#(NSDictionary<NSAttributedStringKey,id> * _Nullable)#>]
+    
+    self.title = viewTitle;
 }
 
 
@@ -67,6 +74,7 @@
 //-(void) dealloc{
 //    [self.data release];
 //    [self.bible release];
+//    [super dealloc];
 //}
 
 @end

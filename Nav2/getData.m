@@ -26,15 +26,31 @@
     NSString *urlString = [NSString stringWithFormat: @"https://www.dropbox.com/s/y24kzlvu1lh5f12/BibleJson.json?dl=1"];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
 
+    // I couldn't assign the value of jsonData when declared without using __block
+    // __block lets the declared variable to be modified inside a block
+    __block NSData *jsonData = [[NSData alloc] init];
+
     // Fetching json object as NSData
-    NSData *jsonData = [NSData dataWithContentsOfURL: url];
-
+    NSURLSessionTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+           NSLog(@"%@",data);
+           jsonData = data;
+       }];
+    [downloadTask resume];
+        
+    
+    // Simple way of stopping the program until the data is received
+    do
+    {
+        //do nothing
+    } while(jsonData.length == 0);      // The data should have some length
+    
+    
+    
     // Coverting NSData with fetched json as a dictionary object
-    NSDictionary *bible = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-//    [bible retain];         //Increasing the retain count so that it can be released later
-//
-//    [url release];
-
+        NSDictionary *bible = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    //    [bible retain];         //Increasing the retain count so that it can be released later
+    //
+    //    [url release];
     return bible;
 }
 
@@ -95,7 +111,7 @@
 
 
 
-
+// SCENE BASED FUNCTIONS
 
 
 

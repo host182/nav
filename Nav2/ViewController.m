@@ -68,6 +68,7 @@
 //-(void) dealloc{
 //    [bible release];
 //    [data release];
+//    [super dealloc];
 //}
 
 
