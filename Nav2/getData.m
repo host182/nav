@@ -20,7 +20,7 @@
 
 @implementation GetData{}
 
-+(NSDictionary *) getDataAsDictionary
++(void)getDataAsDictionary:(void (^)(NSDictionary *))completion
 {
     // Setting up the NSURL object
     NSString *urlString = [NSString stringWithFormat: @"https://www.dropbox.com/s/y24kzlvu1lh5f12/BibleJson.json?dl=1"];
@@ -32,26 +32,20 @@
 
     // Fetching json object as NSData
     NSURLSessionTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-           NSLog(@"%@",data);
-           jsonData = data;
+        if (error)
+        {
+            NSLog(@"Error: %@", error);
+            completion(nil);
+        }
+        else
+        {
+            jsonData = data;
+            NSDictionary *bible = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+            
+            completion(bible);
+        }
        }];
     [downloadTask resume];
-        
-    
-    // Simple way of stopping the program until the data is received
-    do
-    {
-        //do nothing
-    } while(jsonData.length == 0);      // The data should have some length
-    
-    
-    
-    // Coverting NSData with fetched json as a dictionary object
-        NSDictionary *bible = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-    //    [bible retain];         //Increasing the retain count so that it can be released later
-    //
-    //    [url release];
-    return bible;
 }
 
 
@@ -68,7 +62,7 @@
 
         // Searching for keys with the book number (1 to 66)
         NSDictionary *thisBook = [bible valueForKey:key];
-
+        
         // Adding the books that are found
         allBooks[i] = [thisBook valueForKey:@"name"];
     }

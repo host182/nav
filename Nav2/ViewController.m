@@ -21,15 +21,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    bible = [GetData getDataAsDictionary];
-    data = [GetData getBooks:bible];
+    
+    //Creating a spinner until the data loads
+    
+    // Getting the size of the screen
+    CGSize screenSize = [UIScreen.mainScreen bounds].size;
+    
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] init];
+    // Adding the spinner in the center
+    spinner.center = CGPointMake(screenSize.width/2,screenSize.height/2);
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
+    
+    NSLog(@"Fetching");
+    [GetData getDataAsDictionary:^(NSDictionary *result) {
+//        // making sure the spinner is shown
+//        [NSThread sleepForTimeInterval:5];
+        
+        NSLog(@"Got data");
+        self->bible = result;
+        self->data = [GetData getBooks:result];
+        
+        //REMEMBER, A SECONDARY THREAD CANNOT ACCESS UI ELEMENTS
+        dispatch_async(dispatch_get_main_queue(),^ {
+            [self.tableView reloadData];
+            //hiding the spinner
+            [spinner stopAnimating];
+        });
+    }];
+    NSLog(@"Waiting");
+//    data = [GetData getBooks:bible];
 }
 
 
 
-
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reusableCell"];
     
     cell.textLabel.text = data[indexPath.row];
