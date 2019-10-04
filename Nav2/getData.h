@@ -21,7 +21,7 @@
 +(NSMutableArray *) getChapters: (NSDictionary *) bookChapters : (NSString *) bookName;
 +(NSMutableArray *) getVerses: (NSString *) chapter :(NSString *) prefix;
 
--(NSMutableArray *) scene1: (NSDictionary *) bible;
++(NSMutableArray *) scene1: (NSDictionary *) bible;
 +(NSMutableArray *) scene2: (NSDictionary *) bible rowTapped:(int) rowIndex;
 +(NSMutableArray *) scene3: (NSDictionary *) bible rowTapped:(int) rowIndex bookIndex:(int) bookIndex;
 

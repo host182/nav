@@ -44,8 +44,14 @@
             
             completion(bible);
         }
+        
+//        [url release];
+//        [jsonData release];
+        
        }];
     [downloadTask resume];
+    
+    
 }
 
 

@@ -33,12 +33,12 @@
     [self.view addSubview:spinner];
     [spinner startAnimating];
     
-    NSLog(@"Fetching");
+
     [GetData getDataAsDictionary:^(NSDictionary *result) {
 //        // making sure the spinner is shown
 //        [NSThread sleepForTimeInterval:5];
         
-        NSLog(@"Got data");
+
         self->bible = result;
         self->data = [GetData getBooks:result];
         
@@ -47,10 +47,10 @@
             [self.tableView reloadData];
             //hiding the spinner
             [spinner stopAnimating];
+//            [spinner release];
         });
     }];
-    NSLog(@"Waiting");
-//    data = [GetData getBooks:bible];
+    
 }
 
 
